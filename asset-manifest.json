@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/PavloHorbatiuk/users_list/static/css/main.e15b9c72.css",
+    "main.js": "/PavloHorbatiuk/users_list/static/js/main.015208f4.js",
+    "static/js/787.28cb0dcd.chunk.js": "/PavloHorbatiuk/users_list/static/js/787.28cb0dcd.chunk.js",
+    "static/media/hero.png": "/PavloHorbatiuk/users_list/static/media/hero.bc862e1edd97e2bc8228.png",
+    "static/media/Logo.svg": "/PavloHorbatiuk/users_list/static/media/Logo.150974506a8091ec12dafa4bb2e4f890.svg",
+    "index.html": "/PavloHorbatiuk/users_list/index.html",
+    "main.e15b9c72.css.map": "/PavloHorbatiuk/users_list/static/css/main.e15b9c72.css.map",
+    "main.015208f4.js.map": "/PavloHorbatiuk/users_list/static/js/main.015208f4.js.map",
+    "787.28cb0dcd.chunk.js.map": "/PavloHorbatiuk/users_list/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e15b9c72.css",
+    "static/js/main.015208f4.js"
+  ]
+}
