@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import NavBar from './components/Navbar';
+import { Hero } from './components/Hero';
+import { UsersPage } from './components/UsersPage';
+import { InitialStateType, getAllUsers, getPosition } from './store/reducers/UsersReducers';
+import { ReduxState, useAppDispatch } from './store/state';
+import { AddUserForm } from './components/AddUserForm';
+import SuccessfulPage from './components/SuccessfulPage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const dispatch = useAppDispatch();
+	const {   isAuth } = useSelector<ReduxState, InitialStateType>(
+		(state) => state.users
+	);
+	
+	useEffect(() => {
+		dispatch(getAllUsers());
+		dispatch(getPosition())
+	}, [dispatch]);
+
+	return (
+		<div className='bg-lightGrey'>
+			<Router>
+				<div className='bg-lightGrey'>
+					<NavBar />
+					<Hero />
+					<UsersPage />		
+					<Routes>
+						{isAuth ? (
+							<Route path="/successful" element={<SuccessfulPage />} />
+						) : (
+							<Route path="/add-user" element={<AddUserForm />} />
+						)}
+					</Routes>
+				</div>
+			</Router>
+		</div>
+	);
 }
 
 export default App;

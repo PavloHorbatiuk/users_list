@@ -1,13 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  font-family: 'Nunito', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: Nunito, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+@layer utilities {
+  .text-body-16 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+  }
+
+  .btn {
+    border-radius: 80px;
+    font-size: 16px;
+    font-weight: 400;
+    width: 100px;
+    height: 34px;
+  }
+
+  .btn:disabled {
+    background-color: #b4b4b4;
+  }
+}
+
+.custom-input {
+  height: 54px;
+  max-width: 380px;
+  border-radius: 4px;
+  background-color: #e5e5e5;
+  border: 1px solid #d0cfcf;
+  width: 100%;
+  padding: 14px 0 14px 16px;
+}
+
+.custom-input.error {
+  border-color: #cb3d40;
+}
+
+small {
+  color: #7e7e7e;
+  font-size: 12px;
+}
+
+input[type='radio'] {
+  appearance: none;
+  font: inherit;
+  color: currentColor;
+  border: 1px solid #D0CFCF;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+input[type='radio']::before {
+  content: '';
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  background-color: #00bdd3;
+
+}
+
+input[type='radio']:checked::before {
+  transform: scale(1);
+}
+
+input[type='radio']:focus {
+  border: 1px solid #00BDD3;
+}
+
+.custom-file-upload {
+  height: 54px;
+  max-width: 380px;
+  border-radius: 4px;
+  background-color: #e5e5e5;
+  border: 1px solid #d0cfcf;
+  width: 100%;
+}
+
+.custom-file-upload.error {
+  border-color: #cb3d40;
+}
+
+
+.custom-file-upload-label {
+  display: inline-block;
+  padding: 0.875rem 0.9375rem 0.875rem 0.9375rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000000;
+  background-color: inherit;
+  border: 1px solid rgba(0, 0, 0, 0.87);
+  border-radius: 4px 0px 0px 4px;
+  cursor: pointer;
+}
+
+.custom-file-upload-input {
+  display: none;
+}
+
+span {
+  color: #7E7E7E;
+  font-weight: 400;
+}
+
+.error-text {
+  color: #CB3D40;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
 }
