@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { InitialStateType, signUp } from '../store/reducers/UsersReducers';
 import { ReduxState } from '../store/state';
 import * as Yup from 'yup';
+import { InitialStateType as loaderType } from './../store/reducers/LoaderReducer';
+import { useNavigate } from 'react-router-dom';
 
 
 export interface FormValues {
@@ -26,7 +28,13 @@ const AddUserForm: React.FC = () => {
 	const { positionToStart, serverErrors,  isAuth } = useSelector<ReduxState, InitialStateType>(
 		(state) => state.users
 	);
-console.log("rerender")
+	const { status } = useSelector<ReduxState, loaderType>(
+		(state) => state.status
+	);
+	const navigate = useNavigate();
+
+
+	const clickHandler = () => navigate('/add-user')
 	const dispatch = useDispatch();
 	const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
@@ -60,7 +68,7 @@ console.log("rerender")
 		}
 		dispatch<any>(signUp(formData));
 		if(isAuth){
-		
+			navigate('/users')
 		}
 	};
 
@@ -170,6 +178,7 @@ console.log("rerender")
 										<div className="error-text">{serverErrors?.message}</div>
 									</div>
 								)}
+								{status === 'loading' && <div className='mb-5'>Loading</div>}
 								<button type="submit" className="btn bg-primary hover:bg-hover">
 									Sign up
 								</button>

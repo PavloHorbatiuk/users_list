@@ -2,7 +2,7 @@ export type RequestStatusType = 'idle' | 'loading' | 'succeeded' | 'failed';
 const initialState = {
 	status: '' as RequestStatusType,
 };
-type InitialStateType = typeof initialState;
+export type InitialStateType = typeof initialState;
 export const StatusReducers = (
 	state: InitialStateType = initialState,
 	action: ActionsStatusType

@@ -168,12 +168,14 @@ export const signUp =
 			if (status === 201) {
 				dispatch(isSuccessfulAC(true));
 				redirect('/successful');
+				dispatch(setStatusAC('succeeded'));
 				console.log(status , "status")
 			} else {
 				console.log(statusText);
 			}
 			dispatch(setStatusAC('succeeded'));
 		} catch (error) {
+			dispatch(setStatusAC('succeeded'));
 			console.error(error, 'error');
 			if (error instanceof Error) {
 				dispatch(setErrorsAC((error as any).response?.data));

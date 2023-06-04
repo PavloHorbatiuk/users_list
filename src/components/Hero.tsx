@@ -8,12 +8,14 @@ import { InitialStateType } from '../store/reducers/UsersReducers';
 
 
 
+
 const Hero = () => {
 	const navigate = useNavigate();
 	const { isAuth } = useSelector<ReduxState, InitialStateType>(
 		(state) => state.users
 	);
-	const clickHandler = () => navigate('/add-user');
+
+	const clickHandler = () => navigate('/add-user')
 
 	return (
 
