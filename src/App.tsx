@@ -8,6 +8,7 @@ import { AddUserForm } from './components/AddUserForm';
 import SuccessfulPage from './components/SuccessfulPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import './index.css'
 
 
 function App() {
