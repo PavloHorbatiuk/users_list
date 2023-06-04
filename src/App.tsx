@@ -6,7 +6,7 @@ import { InitialStateType, getAllUsers, getPosition } from './store/reducers/Use
 import { ReduxState, useAppDispatch } from './store/state';
 import { AddUserForm } from './components/AddUserForm';
 import SuccessfulPage from './components/SuccessfulPage';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {  Routes, Route, BrowserRouter } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './index.css'
 
@@ -24,7 +24,7 @@ function App() {
 
 	return (
 		<div className='bg-lightGrey'>
-			<Router>
+			<BrowserRouter>
 				<div className='bg-lightGrey'>
 					<NavBar />
 					<Hero />
@@ -37,7 +37,7 @@ function App() {
 						)}
 					</Routes>
 				</div>
-			</Router>
+			</BrowserRouter>
 		</div>
 	);
 }
